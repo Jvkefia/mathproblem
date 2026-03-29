@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
-
+export const runtime = 'edge';
 
 const systemPrompt = `당신은 대한민국 최고 수준의 고등학교 수학 교육 전문가이자 수능 출제 위원입니다.
 사용자가 수학 단원을 말하면, 해당 단원과 관련된 수능/모의평가 형식의 수학 문제 5개를 출제해야 합니다.
