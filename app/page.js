@@ -24,7 +24,14 @@ export default function Home() {
         body: JSON.stringify({ topic }),
       });
       
-      const data = await response.json();
+      let data;
+      try {
+        const text = await response.text();
+        data = text ? JSON.parse(text) : {};
+      } catch (parseError) {
+        throw new Error('서버 응답이 올바르지 않습니다 (Internal Server Error). 관리자에게 문의하거나 Cloudflare 설정을 확인하세요.');
+      }
+
       if (!response.ok) {
         throw new Error(data.error || '생성 중 오류가 발생했습니다.');
       }
