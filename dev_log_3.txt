@@ -1,0 +1,223 @@
+
+ ⛅️ wrangler 4.78.0
+───────────────────
+Attaching additional modules:
+┌───────────────────────────────────────────────────────┬──────┬────────────┐
+│ Name                                                  │ Type │ Size       │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/cache/adaptor.js               │ esm  │ 2.29 KiB   │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/cache/cache-api.js             │ esm  │ 0.43 KiB   │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/cache/kv.js                    │ esm  │ 0.35 KiB   │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/functions/api/generate.func.js │ esm  │ 345.30 KiB │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ Total (4 modules)                                     │      │ 348.36 KiB │
+└───────────────────────────────────────────────────────┴──────┴────────────┘
+✨ Compiled Worker successfully
+✨ Parsed 1 valid header rule.
+Your Worker has access to the following bindings:
+Binding                                                                   Resource                  Mode
+env.CF_PAGES ("1")                                                        Environment Variable      local
+env.CF_PAGES_BRANCH ("main")                                              Environment Variable      local
+env.CF_PAGES_COMMIT_SHA ("bf7d6087a246f417fda29f9706d26ab15ef90...")      Environment Variable      local
+env.CF_PAGES_URL ("https://bf7d608.mathproblem.pages.dev")                Environment Variable      local
+
+⎔ Starting local server...
+[wrangler:info] Ready on http://localhost:8788
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTypeError: Illegal invocation: function called with incorrect `this` reference. See https://developers.cloudflare.com/workers/observability/errors/#illegal-invocation-errors for details.[0m
+
+      at Zt.waitUntil (file:///Users/jylee/mathproblem/.vercel/output/static/_worker.js/__next-on-pages-dist__/functions/api/generate.func.js:2:844)
+      at ls.handler (file:///Users/jylee/mathproblem/.vercel/output/static/_worker.js/__next-on-pages-dist__/functions/api/generate.func.js:2:35784)
+      at async is (file:///Users/jylee/mathproblem/.vercel/output/static/_worker.js/__next-on-pages-dist__/functions/api/generate.func.js:2:6067)
+      at async Module.<anonymous> (file:///Users/jylee/mathproblem/.vercel/output/static/_worker.js/__next-on-pages-dist__/functions/api/generate.func.js:106:5180)
+      at async C (file:///Users/jylee/mathproblem/.vercel/output/static/_worker.js/index.js:40:17642)
+      at async Ee (file:///Users/jylee/mathproblem/.vercel/output/static/_worker.js/index.js:40:28880)
+      at async jsonError (file:///Users/jylee/mathproblem/node_modules/wrangler/templates/middleware/middleware-miniflare3-json-error.ts:22:10)
+      at async drainBody (file:///Users/jylee/mathproblem/node_modules/wrangler/templates/middleware/middleware-ensure-req-body-drained.ts:5:10)
+
+
+[wrangler:info] POST /api/generate 500 Internal Server Error (48ms)
+This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+Error: ENOENT: no such file or directory, scandir '/Users/jylee/mathproblem/.vercel/output/static/_worker.js'
+    at async Object.readdir (node:internal/fs/promises:953:18)
+    at async getFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48601:23)
+    at async matchFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48740:20)
+    at async findAdditionalModules (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48638:20)
+    at async produceWorkerBundleForWorkerJSDirectory (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:234125:29)
+    at async runBuild (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239843:34)
+    at async FSWatcher.<anonymous> (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239861:15)
+This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+Error: ENOENT: no such file or directory, scandir '/Users/jylee/mathproblem/.vercel/output/static/_worker.js'
+    at async Object.readdir (node:internal/fs/promises:953:18)
+    at async getFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48601:23)
+    at async matchFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48740:20)
+    at async findAdditionalModules (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48638:20)
+    at async produceWorkerBundleForWorkerJSDirectory (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:234125:29)
+    at async runBuild (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239843:34)
+    at async FSWatcher.<anonymous> (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239861:15)
+This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+Error: ENOENT: no such file or directory, scandir '/Users/jylee/mathproblem/.vercel/output/static/_worker.js'
+    at async Object.readdir (node:internal/fs/promises:953:18)
+    at async getFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48601:23)
+    at async matchFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48740:20)
+    at async findAdditionalModules (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48638:20)
+    at async produceWorkerBundleForWorkerJSDirectory (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:234125:29)
+    at async runBuild (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239843:34)
+    at async FSWatcher.<anonymous> (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239861:15)
+This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+Error: ENOENT: no such file or directory, scandir '/Users/jylee/mathproblem/.vercel/output/static/_worker.js'
+    at async Object.readdir (node:internal/fs/promises:953:18)
+    at async getFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48601:23)
+    at async matchFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48740:20)
+    at async findAdditionalModules (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48638:20)
+    at async produceWorkerBundleForWorkerJSDirectory (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:234125:29)
+    at async runBuild (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239843:34)
+    at async FSWatcher.<anonymous> (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239861:15)
+This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+Error: ENOENT: no such file or directory, scandir '/Users/jylee/mathproblem/.vercel/output/static/_worker.js'
+    at async Object.readdir (node:internal/fs/promises:953:18)
+    at async getFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48601:23)
+    at async matchFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48740:20)
+    at async findAdditionalModules (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48638:20)
+    at async produceWorkerBundleForWorkerJSDirectory (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:234125:29)
+    at async runBuild (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239843:34)
+    at async FSWatcher.<anonymous> (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239861:15)
+This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+Error: ENOENT: no such file or directory, scandir '/Users/jylee/mathproblem/.vercel/output/static/_worker.js'
+    at async Object.readdir (node:internal/fs/promises:953:18)
+    at async getFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48601:23)
+    at async matchFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48740:20)
+    at async findAdditionalModules (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48638:20)
+    at async produceWorkerBundleForWorkerJSDirectory (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:234125:29)
+    at async runBuild (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239843:34)
+    at async FSWatcher.<anonymous> (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239861:15)
+This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+Error: ENOENT: no such file or directory, scandir '/Users/jylee/mathproblem/.vercel/output/static/_worker.js'
+    at async Object.readdir (node:internal/fs/promises:953:18)
+    at async getFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48601:23)
+    at async matchFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48740:20)
+    at async findAdditionalModules (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48638:20)
+    at async produceWorkerBundleForWorkerJSDirectory (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:234125:29)
+    at async runBuild (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239843:34)
+    at async FSWatcher.<anonymous> (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239861:15)
+This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+Error: ENOENT: no such file or directory, scandir '/Users/jylee/mathproblem/.vercel/output/static/_worker.js'
+    at async Object.readdir (node:internal/fs/promises:953:18)
+    at async getFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48601:23)
+    at async matchFiles (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48740:20)
+    at async findAdditionalModules (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:48638:20)
+    at async produceWorkerBundleForWorkerJSDirectory (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:234125:29)
+    at async runBuild (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239843:34)
+    at async FSWatcher.<anonymous> (/Users/jylee/mathproblem/node_modules/wrangler/wrangler-dist/cli.js:239861:15)
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mBuild failed with 1 error:[0m
+
+  [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "/Users/jylee/mathproblem/.vercel/output/static/_worker.js/index.js"[0m
+  
+  
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mBuild failed with 1 error:[0m
+
+  [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "/Users/jylee/mathproblem/.vercel/output/static/_worker.js/index.js"[0m
+  
+  
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mError building worker script: Build failed with 1 error:[0m
+
+  error: Could not resolve "/Users/jylee/mathproblem/.vercel/output/static/_worker.js/index.js"
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mError building worker script: Build failed with 1 error:[0m
+
+  error: Could not resolve "/Users/jylee/mathproblem/.vercel/output/static/_worker.js/index.js"
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mBuild failed with 1 error:[0m
+
+  [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "/Users/jylee/mathproblem/.vercel/output/static/_worker.js/index.js"[0m
+  
+  
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mError building worker script: Build failed with 1 error:[0m
+
+  error: Could not resolve "/Users/jylee/mathproblem/.vercel/output/static/_worker.js/index.js"
+
+
+Attaching additional modules:
+┌───────────────────────────────────────────────────────┬──────┬────────────┐
+│ Name                                                  │ Type │ Size       │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/functions/api/generate.func.js │ esm  │ 242.30 KiB │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ Total (1 module)                                      │      │ 242.30 KiB │
+└───────────────────────────────────────────────────────┴──────┴────────────┘
+✨ Compiled Worker successfully
+Attaching additional modules:
+┌───────────────────────────────────────────────────────┬──────┬────────────┐
+│ Name                                                  │ Type │ Size       │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/cache/adaptor.js               │ esm  │ 2.29 KiB   │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/cache/cache-api.js             │ esm  │ 0.43 KiB   │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/cache/kv.js                    │ esm  │ 0.35 KiB   │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/functions/api/generate.func.js │ esm  │ 242.30 KiB │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ Total (4 modules)                                     │      │ 245.36 KiB │
+└───────────────────────────────────────────────────────┴──────┴────────────┘
+Attaching additional modules:
+┌───────────────────────────────────────────────────────┬──────┬────────────┐
+│ Name                                                  │ Type │ Size       │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/cache/adaptor.js               │ esm  │ 2.29 KiB   │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/cache/cache-api.js             │ esm  │ 0.43 KiB   │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/cache/kv.js                    │ esm  │ 0.35 KiB   │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/functions/api/generate.func.js │ esm  │ 242.30 KiB │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ Total (4 modules)                                     │      │ 245.36 KiB │
+└───────────────────────────────────────────────────────┴──────┴────────────┘
+This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+Error: The service was stopped: write EPIPE
+    at /Users/jylee/mathproblem/node_modules/wrangler/node_modules/esbuild/lib/main.js:949:34
+    at responseCallbacks.<computed> (/Users/jylee/mathproblem/node_modules/wrangler/node_modules/esbuild/lib/main.js:603:9)
+    at afterClose (/Users/jylee/mathproblem/node_modules/wrangler/node_modules/esbuild/lib/main.js:594:28)
+    at /Users/jylee/mathproblem/node_modules/wrangler/node_modules/esbuild/lib/main.js:1986:18
+    at onwriteError (node:internal/streams/writable:603:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:92:21)
+This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+Error: The service was stopped: write EPIPE
+    at /Users/jylee/mathproblem/node_modules/wrangler/node_modules/esbuild/lib/main.js:949:34
+    at responseCallbacks.<computed> (/Users/jylee/mathproblem/node_modules/wrangler/node_modules/esbuild/lib/main.js:603:9)
+    at afterClose (/Users/jylee/mathproblem/node_modules/wrangler/node_modules/esbuild/lib/main.js:594:28)
+    at /Users/jylee/mathproblem/node_modules/wrangler/node_modules/esbuild/lib/main.js:1986:18
+    at onwriteError (node:internal/streams/writable:603:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:92:21)
+Attaching additional modules:
+┌───────────────────────────────────────────────────────┬──────┬────────────┐
+│ Name                                                  │ Type │ Size       │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/cache/adaptor.js               │ esm  │ 2.29 KiB   │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/cache/cache-api.js             │ esm  │ 0.43 KiB   │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/cache/kv.js                    │ esm  │ 0.35 KiB   │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ __next-on-pages-dist__/functions/api/generate.func.js │ esm  │ 242.30 KiB │
+├───────────────────────────────────────────────────────┼──────┼────────────┤
+│ Total (4 modules)                                     │      │ 245.36 KiB │
+└───────────────────────────────────────────────────────┴──────┴────────────┘
+This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+Error: The service is no longer running: write EPIPE
+    at /Users/jylee/mathproblem/node_modules/wrangler/node_modules/esbuild/lib/main.js:949:34
+    at sendRequest (/Users/jylee/mathproblem/node_modules/wrangler/node_modules/esbuild/lib/main.js:599:36)
+    at buildOrContextContinue (/Users/jylee/mathproblem/node_modules/wrangler/node_modules/esbuild/lib/main.js:948:5)
+    at /Users/jylee/mathproblem/node_modules/wrangler/node_modules/esbuild/lib/main.js:868:11
+🪵  Logs were written to "/Users/jylee/Library/Preferences/.wrangler/logs/wrangler-2026-03-30_13-37-02_850.log"

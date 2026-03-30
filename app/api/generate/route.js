@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
 export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 const systemPrompt = `당신은 대한민국 최고 수준의 고등학교 수학 교육 전문가이자 수능 출제 위원입니다.
 사용자가 수학 단원을 말하면, 해당 단원과 관련된 수능/모의평가 형식의 수학 문제 5개를 출제해야 합니다.
@@ -64,10 +65,10 @@ export async function POST(req) {
     const { topic } = await req.json();
 
     if (!process.env.OPENAI_API_KEY) {
-      console.warn("NO OPENAI_API_KEY PROVIDED. SENDING DUMMY FORMATTED DATA.");
-      // 1초 지연 시뮬레이션
-      await new Promise(res => setTimeout(res, 1000));
-      return NextResponse.json({ content: dummyContent });
+      return new Response(JSON.stringify({ content: dummyContent }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -82,12 +83,19 @@ export async function POST(req) {
       max_tokens: 3000,
     });
 
-    return NextResponse.json({ content: completion.choices[0].message.content });
+    const result = { content: completion.choices[0].message.content };
+    return new Response(JSON.stringify(result), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
   } catch (error) {
     console.error("Generate API Error:", error);
-    return NextResponse.json(
-      { error: "AI 문제 생성 통신 중 오류가 발생했습니다." },
-      { status: 500 }
+    return new Response(
+      JSON.stringify({ error: "AI 문제 생성 통신 중 오류가 발생했습니다." }),
+      { 
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      }
     );
   }
 }

@@ -24,16 +24,21 @@ export default function Home() {
         body: JSON.stringify({ topic }),
       });
       
-      let data;
+      let data = {};
+      const text = await response.text();
+      
       try {
-        const text = await response.text();
         data = text ? JSON.parse(text) : {};
       } catch (parseError) {
-        throw new Error('서버 응답이 올바르지 않습니다 (Internal Server Error). 관리자에게 문의하거나 Cloudflare 설정을 확인하세요.');
+        // If not JSON, it's likely a plain text error from the server (e.g. 500 Internals)
+        if (!response.ok) {
+          throw new Error(`서버 오류 (${response.status}): ${text || '알 수 없는 오류가 발생했습니다.'}`);
+        }
+        throw new Error('서버 응답 형식이 올바르지 않습니다.');
       }
 
       if (!response.ok) {
-        throw new Error(data.error || '생성 중 오류가 발생했습니다.');
+        throw new Error(data.error || `생성 중 오류가 발생했습니다. (상태 코드: ${response.status})`);
       }
       
       setExamContent(data.content);
