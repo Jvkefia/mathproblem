@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import OpenAI from 'openai';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
@@ -57,34 +57,31 @@ const dummyContent = `1. 다항식 $P(x) = x^3 - 2x^2 + ax + b$ 가 $x^2 - 1$ �
 ⑤ $6$
 
 > **⚠️ 알림 (API 키 없음)**
-> 현재 서버 환경 변수에 \`OPENAI_API_KEY\` 가 설정되어 있지 않아 위와 같이 **미리 준비된 예시 문제(Mock Data)**가 출력되었습니다. 
-> 실제 AI로 문제를 동적 생성하려면 Cloudflare Pages 등 배포 환경이나 로컬 \`.env.local\` 파일에 OpenAI API Key를 설정해 주세요.`;
+> 현재 서버 환경 변수에 \`GEMINI_API_KEY\` 가 설정되어 있지 않아 위와 같이 **미리 준비된 예시 문제(Mock Data)**가 출력되었습니다. 
+> 실제 AI로 문제를 동적 생성하려면 Cloudflare Pages 등 배포 환경이나 로컬 \`.env.local\` 파일에 Gemini API Key를 설정해 주세요.`;
 
 export async function POST(req) {
   try {
     const { topic } = await req.json();
 
-    if (!process.env.OPENAI_API_KEY) {
+    if (!process.env.GEMINI_API_KEY) {
       return new Response(JSON.stringify({ content: dummyContent }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-    
-    const completion = await openai.chat.completions.create({
-      model: process.env.OPENAI_MODEL || "gpt-4o-mini",
-      messages: [
-        { role: "system", content: systemPrompt },
-        { role: "user", content: `출제해줘. 과목 및 단원: ${topic}` }
-      ],
-      temperature: 0.7,
-      max_tokens: 3000,
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({ 
+      model: "gemini-1.5-flash",
+      systemInstruction: systemPrompt,
     });
+    
+    const result = await model.generateContent(`출제해줘. 과목 및 단원: ${topic}`);
+    const response = await result.response;
+    const content = response.text();
 
-    const result = { content: completion.choices[0].message.content };
-    return new Response(JSON.stringify(result), {
+    return new Response(JSON.stringify({ content }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });
